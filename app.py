@@ -26,13 +26,13 @@ def load_secrets(file_path="secrets.txt"):
 # Load secrets
 #secrets = load_secrets()
 
-YOUTUBE_TRANSCRIPT_API_KEY = os.getenv("YOUTUBE_TRANSCRIPT_API_KEY")
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+YOUTUBE_TRANSCRIPT_API_KEY = st.secrets["YOUTUBE_TRANSCRIPT_API_KEY"]
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 
 YOUTUBE_TRANSCRIPT_API_URL = "https://www.youtube-transcript.io/api/transcripts"
 
-# Load environment variables from a .env file
-load_dotenv()
+# Load environment variables from the .env file
+#load_dotenv(".env")
 
 # Ensure the OpenAI API key is set
 if not OPENAI_API_KEY:
@@ -282,3 +282,4 @@ if st.button("Analyze Video"):
 
     with st.expander("📄 View Transcript"):
         st.write(transcript)
+
